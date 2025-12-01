@@ -6,6 +6,7 @@ import UploadImages from '../utils/uploadImage'
 import Input from '../components/Input'
 import { validateEmail } from '../utils/helper'
 import ProfilePicSelector from '../components/ProfilePicSelector'
+import toast from 'react-hot-toast'
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
@@ -52,14 +53,13 @@ const SignUp = () => {
       })
 
       if (response.data.success){
-        console.log(response.data.data);
         
-        alert(response.data.message)
+        toast.success(response.data.message)
         navigate("/login")
       }
 
       if(response.data.error){
-        alert(response.data.message)
+        toast.error(response.data.message)
         setError(response.data.message)
       }
     } catch (error) {

@@ -7,15 +7,11 @@ import {
 } from "react-icons/lu"
 import Currency from '../utils/Currency'
 
-const TransactionInfoCard = ({title, icon, date, amount, type, hideDeleteBtn}) => {
+const TransactionInfoCard = ({title, icon, date, amount, type, hideDeleteBtn, onDelete}) => {
 
     const getAmountStyles = ()=>
         type === "income" ? "bg-green-50 text-green-500": "bg-red-50 text-red-500"
     
-
-    const onDelete = () =>{
-        
-    }
 
 
   return (

@@ -5,13 +5,14 @@ import Input from '../components/Input'
 import { validateEmail } from '../utils/helper'
 import axiosInstance from '../axiosInstance'
 import { UserContext } from '../context/userContext'
+import toast from 'react-hot-toast'
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(null)
 
-  const {updateUser} = useContext(UserContext)
+  const { updateUser } = useContext(UserContext)
 
   const navigate = useNavigate()
 
@@ -40,22 +41,25 @@ const Login = () => {
       const token = response.data.token;
 
       if (response.data.success) {
-        alert(response.data.message)
+        toast.success(response.data.message)
         localStorage.setItem("token", token)
         updateUser(user)
         navigate('/dashboard')
+        setTimeout(() => {
+          window.location.reload();
+        }, 500)
       }
 
       if (response.data.error) {
-        alert(response.data.message)
+        toast.error(response.data.message)
         setError(response.data.message)
       }
 
 
 
     } catch (error) {
-        console.log(error);
-        
+      console.log(error);
+
     }
   }
 
