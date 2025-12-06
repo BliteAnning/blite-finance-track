@@ -112,7 +112,7 @@ const SignUp = () => {
 
           <button type='submit' className='btn-primary'>SIGN UP</button>
           <p className='text-[13px] text-slate-800 mt-3'>Already have an account ? {""}
-            <Link className='font-medium text-primary underline' to="/signup">Login</Link>
+            <Link className='font-medium text-primary underline' to="/login">Login</Link>
           </p>
         </form>
       </div>
