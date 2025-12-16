@@ -31,11 +31,12 @@ const Login = () => {
     setError("")
 
     //api
+
     try {
       const response = await axiosInstance.post("/login", {
         email,
         password,
-      })
+      });
 
       const user = response.data.data._id;
       const token = response.data.token;
@@ -48,17 +49,14 @@ const Login = () => {
         setTimeout(() => {
           window.location.reload();
         }, 500)
-      }
-
-      if (response.data.error) {
+      } else if (response.data.error) {
         toast.error(response.data.message)
         setError(response.data.message)
       }
-
-
-
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const msg = err.response?.data?.message || "Invalid Credentials";
+      toast.error(msg);
+      setError(msg);
 
     }
   }
@@ -87,7 +85,7 @@ const Login = () => {
             type="password"
           />
 
-          {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
+         {/* {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}*/}
 
           <button type='submit' className='btn-primary'>LOGIN</button>
           <p className='text-[13px] text-slate-800 mt-3'>Don't have an account ? {""}

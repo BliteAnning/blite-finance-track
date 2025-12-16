@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster  reverseOrder={false} />
       <Routes>
         <Route path='/' element={<Root/>}/>
         <Route path='/login' exact element={<Login/>}/>
