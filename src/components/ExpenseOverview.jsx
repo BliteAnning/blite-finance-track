@@ -17,7 +17,7 @@ const ExpenseOverview = ({transactions, onExpenseIncome}) => {
             <div className=''>
                 <h5 className='text-lg'>Expense Overview</h5>
                 <p className='text-xs text-gray-400 mt-0.5'>
-                    Track your expenses trends over time and gain insights into where your money goes
+                    Track your expenses trends over time
                 </p>
             </div>
             <button className='add-btn' onClick={onExpenseIncome}>

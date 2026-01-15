@@ -60,19 +60,19 @@ const Home = () => {
           <InfoCard
             icon = {<IoMdCard/>}
             label ="Total Balance"
-            value ={dashboardData?.totalBalance}
+            value ={dashboardData?.totalBalance || 0}
             color = "bg-primary"
           />
           <InfoCard
             icon = {<LuWalletMinimal/>}
             label ="Total Income"
-            value ={dashboardData?.totalIncome}
+            value ={dashboardData?.totalIncome || 0}
             color = "bg-orange-500"
           />
           <InfoCard
             icon = {<LuHandCoins/>}
             label ="Total Expenses"
-            value ={dashboardData?.totalExpenses }
+            value ={dashboardData?.totalExpenses || 0 }
             color = "bg-red-500"
           />
         </div>
